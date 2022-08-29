@@ -1,0 +1,28 @@
+{% extends "template.html" %}
+{% block title %}Home{% endblock %}
+{% block content%}
+<div class="container">
+    <div class="row" style="margin-top: 40px">
+        <div class="col-md-8 col-md-offset-2">
+            <h1>Register:</h1>
+            <br>
+            <form method="POST">
+                <div class="form-group">
+                  <label for="email">Username : </label>
+                  <input type="text" name="uname" class="form-control" id="uname">
+                </div>
+                <div class="form-group">
+                  <label for="email">Email : </label>
+                  <input type="email" name="email" class="form-control" id="mail">
+                </div>
+                <div class="form-group">
+                  <label for="email">Password : </label>
+                  <input type="password" name="passw" class="form-control" id="passw">
+                </div>
+                <p>{%if msg%}{{msg}}{%endif%}</p>
+                <button type="submit" class="btn form-control btn-default">Register</button>
+            </form>
+        </div>
+    </div>
+</div>
+{%endblock%}

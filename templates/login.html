@@ -1,0 +1,28 @@
+{% extends "template.html" %}
+{% block title %}Login or Register{% endblock %}
+{% block content%}
+
+<div class="container" >
+    <div class="row" style="margin-top: 40px">
+        <div class="col-md-8 col-md-offset-2">
+            <h1>Login:</h1>
+            <br>
+            <form  method="POST">
+                <div class="form-group">
+                  <label for="email">Username : </label>
+                  <input type="text" name="username" class="form-control" id="uname" required>
+                </div>
+                <div class="form-group">
+                  <label for="email">Password : </label>
+                  <input type="password" name="password" class="form-control" id="passw" required>
+                </div>
+                <p>{%if msg%}{{msg}}{%endif%}</p>
+                <button type="submit" class="btn form-control btn-default">Login</button>
+            </form>
+            <div>
+                <p>Not Registered? <a href="register">Click here to register!</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+{%endblock%}

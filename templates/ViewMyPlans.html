@@ -1,0 +1,58 @@
+{% extends "template.html" %}
+{% block title %}My Plans{% endblock %}
+{% block content%}
+<div class="container">
+	<div class="row">
+
+		<div class="col-md-8 col-md-offset-2">
+
+			<h1>Create your Trip Plan list</h1>
+            <br>
+			<form action="/viewmyplans" method="POST" enctype="multipart/form-data">
+				<div class="form-group">
+                    <label for="formGroupExampleInput"><h3>Trip plan name:</h3></label>
+                    <input type="text" class="form-control" id="planname" name="planname" placeholder="Example-Trip@Goa">
+                  </div>
+                 <br>
+				 <br>
+				<div class="form-group">
+					<button type="submit" class="btn btn-primary">
+						Create
+					</button>
+					<button class="btn btn-default">
+						Cancel
+					</button>
+				</div>
+
+			</form>
+		</div>
+
+	</div>
+    <div class="row">
+		<div class="col-md-8 col-md-offset-2">
+			<h1>Your Plans:</h1>
+		</div>
+	</div>
+    {%if data%}
+	{%for res in data%}
+    <div class="row">
+		<div class="col-md-8 col-md-offset-2">
+            <form action="/viewplanposts" method="POST">
+				<div class="card">
+					<h3 class="card-header">{{res[2]}}</h3>
+					<div class="card-body">
+						<button type="submit" class="btn btn-primary btn-sm shadow-none" name="planid"
+						value={{res[0]}}>View Plan!</button>
+					</div>
+				</div>    
+		    </form>
+        </div>
+    </div>   
+    <br>
+    {%endfor%}
+	{%endif%}
+
+
+</div>
+
+{%endblock%}

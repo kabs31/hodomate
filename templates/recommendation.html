@@ -1,0 +1,92 @@
+{% extends "template.html" %}
+{% block title %}Home{% endblock %}
+{% block content%}
+<h1 style="text-align: center;">Find your perfect destination here, {%if u%}{{u}}{%endif%}</h1>
+
+<div class="container">
+
+  {%if data%}
+  {%for res in data%}
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <div style=" border: black;width:950px;background-color:white;padding: 20px;margin-top: 20px;">
+        <table class="pull-right">
+					<tr>
+						<td style="margin: 10px; padding: 5px;">
+							<form action="/" method="POST"><button name='edit' type="submit"
+									class="btn btn-success" value={{res[0]}}>Add to my Plan</button></form>
+
+
+						</td>
+						<td style="margin: 10px; padding: 5px;">
+							<form action="/bookcab" method="POST"><button name='book' type="submit"
+									class="btn btn-warning" value={{res[0]}}>Book an Ola</button></form>
+
+						</td>
+					</tr>
+          </table>
+        <h2>{{res[1]}}</h2>
+        <h5>{{res[2]}}&nbsp; {{res[7]}}</h5>
+        <img src="static/postimages/{{res[4]}}">
+        <h3>{{res[3]}}</h3>
+        <table>
+          <tr>
+            <td style="margin: 10px; padding: 5px;">
+              <form action="/homelike" method="POST"><button class="btn btn-primary btn-sm shadow-none" name="like"
+                  value={{res[0]}}>{{res[6]}}&nbsp;Like&nbsp;<i class="glyphicon glyphicon-thumbs-up"></i></button>
+              </form>
+            </td>
+            <br>
+            <br>
+            <td style="margin: 10px; padding: 5px;">
+              <button class="btn btn-primary btn-sm shadow-none">Share&nbsp;<i
+                  class='glyphicon glyphicon-send'></i></button>
+            </td>
+          </tr>
+        </table>
+        <br>
+        <form action="/addcomment" method="POST">
+          <div class="bg-white p-2">
+            <textarea hidden name='page'>home</textarea>
+            <div class="d-flex flex-row align-items-start"><textarea class="form-control ml-1 shadow-none textarea"
+                placeholder="Add a comment..." name='comment'></textarea>
+            </div>
+            <br>
+            <div class="mt-2 text-right"><button name='cbutton' value={{res[0]}}
+                class="btn btn-primary btn-sm shadow-none" type="submit">Post
+                comment</button>
+            </div>
+          </div>
+        </form>
+        {%if comments%}
+        <h1>Comments</h1>
+        {%for comment in comments%}
+        {%if comment[1]==res[0]%}
+        <div id={{res[0]}}>
+          <div class="container">
+            <div class="row">
+
+              <div class="col-sm-5 col-md-6 col-12 pb-4">
+                <p>{{curYear}}</p>
+                <div class="text-justify darker mt-4 float-left">
+                  <img hidden src="https://i.imgur.com/yTFUilP.jpg" alt="" class="rounded-circle" width="40"
+                    height="40">
+                  <h4>{{comment[2]}}</h4> <span>- {{comment[4]}}</span> <br>
+                  <p>{{comment[3]}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {%endif%}
+        {%endfor%}
+        {%endif%}
+      </div>
+    </div>
+  </div>
+  <br>
+  {%endfor%}
+  {%endif%}
+</div>
+
+{%endblock%}

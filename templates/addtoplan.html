@@ -1,0 +1,33 @@
+{% extends "template.html" %}
+{% block title %}My Plans{% endblock %}
+{% block content%}
+<div class="container">
+    <div class="row">
+		<div class="col-md-8 col-md-offset-2">
+			<h1>Your Plans:</h1>
+		</div>
+	</div>
+    {%if data%}
+	{%for res in data%}
+    <div class="row">
+		<div class="col-md-8 col-md-offset-2">
+            <form action="/addhere" method="POST">
+                <input type="hidden" id="custId" name="pid" value="{{pid}}">
+                <div class="card">
+                    <h3 class="card-header">{{res[2]}}</h3>
+                    <div class="card-body">
+                        <button class="btn btn-primary btn-sm shadow-none" name="addhere"
+                        value={{res[0]}}>Add here!</button>
+                    </div>
+                </div> 
+            </form>
+        </div>
+    </div>   
+    <br>
+    {%endfor%}
+	{%endif%}
+
+
+</div>
+
+{%endblock%}

@@ -1,0 +1,1 @@
+from tsp.plots.static import trumpet_curve, colour_contour, time_series

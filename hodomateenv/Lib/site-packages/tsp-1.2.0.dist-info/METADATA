@@ -1,0 +1,61 @@
+Metadata-Version: 2.1
+Name: tsp
+Version: 1.2.0
+Summary: Making permafrost data effortless
+Home-page: https://gitlab.com/permafrostnet/teaspoon
+Author: Nick Brown
+Author-email: nick.brown@carleton.ca
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU General Public License (GPL)
+Classifier: Operating System :: POSIX
+Classifier: Programming Language :: Python
+Classifier: Topic :: Software Development :: Libraries
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: pandas
+Requires-Dist: numpy
+Requires-Dist: regex
+Provides-Extra: dev
+Requires-Dist: manuel ; extra == 'dev'
+Requires-Dist: pytest ; extra == 'dev'
+Requires-Dist: pytest-cov ; extra == 'dev'
+Requires-Dist: coverage ; extra == 'dev'
+Requires-Dist: mock ; extra == 'dev'
+Provides-Extra: nc
+Requires-Dist: netCDF4 ; extra == 'nc'
+Requires-Dist: pfit (==0.2.1) ; extra == 'nc'
+Provides-Extra: plotting
+Requires-Dist: matplotlib ; extra == 'plotting'
+Requires-Dist: scipy ; extra == 'plotting'
+
+# Teaspoon
+
+## See the full documentation on the [ReadTheDocs Pages](https://permafrostnet.gitlab.io/teaspoon/)
+
+## [What is it?](https://permafrostnet.gitlab.io/teaspoon/source/about.html)
+`tsp` ('teaspoon') is a python library designed to make working with permafrost ground temperature time series data more straightforward, efficient, and reproduceable. Some of the features include:
+
+* Read a variety of common published data formats, datalogger outputs, and model results into a common data structure
+    * GEOtop model output
+    * GTN-P database export csv
+    * NTGS ground temperature report csv
+    * Geoprecision datalogger export
+    * HoboWare datalogger export
+* Export data in a variety of common formats
+    * netcdf
+    * 'GTN-P'-style csv
+    * 'NTGS'-style csv
+* Perform common data transformations
+    * Calculate daily, monthly, or yearly means, ignoring averaging periods with missing data
+    * Switch between "long" and "wide" dataframes
+* Visualize and explore your data with commonly used plots
+    * Trumpet curves
+    * Temperature-time graphs
+    * Colour-contour profiles
+
+## [Installation](https://permafrostnet.gitlab.io/teaspoon/source/install.html)
+
+## [Usage Examples](https://permafrostnet.gitlab.io/teaspoon/source/examples.html)
+
+## [How to contribute](https://permafrostnet.gitlab.io/teaspoon/source/contributions.html)

@@ -1,0 +1,42 @@
+{% extends "template.html" %}
+{% block title %}My Profile{% endblock %}
+
+{% block content%}
+
+<div class="container">
+	<div class="row">
+
+		<div class="col-md-8 col-md-offset-2">
+
+			<h1>Edit Post</h1>
+
+			<form action="/update" method="POST" enctype="multipart/form-data">
+				<div class="form-group">
+					<label for="description">Share something that you have explored! </label>
+					<textarea rows="5" class="form-control" name="description" name="description"></textarea>
+				</div> 
+
+				<div class="form-group">
+					<label for="location">Address:</label>
+					<input type="text" name="location"></input>
+				</div>
+
+				<div class="form-group">
+					<label for="description">Upload Images and videos </label>
+					<input type="file" multiple name="files" />
+				</div>
+
+				<div class="form-group">
+					<button type="submit" class="btn btn-primary" name="pid" value={{pid}}>
+						Update
+					</button>
+					<button class="btn btn-default">
+						Cancel
+					</button>
+				</div>
+
+			</form>
+		</div>
+
+	</div>
+{%endblock%}
